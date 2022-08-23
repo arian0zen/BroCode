@@ -2,6 +2,22 @@
   "dependencies": {
     "express": "^4.18.1",
     "node-fetch": "^2.6.7"
-  }
- 
+  },
+  "name": "brocode",
+  "description": "Let's see what it turns out to be",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arian0zen/BroCode.git"
+  },
+  "author": "Arian Shaikh, Tuhin Bar, Souvik Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arian0zen/BroCode/issues"
+  },
+  "homepage": "https://github.com/arian0zen/BroCode#readme"
 }
