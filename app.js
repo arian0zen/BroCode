@@ -33,9 +33,10 @@ query questionOfToday {
  */
 const syncLeetCodeCodingChallenge = async () => {
   const question = await fetchDailyCodingChallenge();
+  console.log("LeetCode: POTD");
 
   const questionInfo = question.data.activeDailyCodingChallengeQuestion;
-//   console.log(questionInfo);
+  //   console.log(questionInfo);
 
   const questionTitle = questionInfo.question.title;
   const questionDifficulty = questionInfo.question.difficulty;
@@ -43,7 +44,8 @@ const syncLeetCodeCodingChallenge = async () => {
   console.log("the problem of the day for", questionInfo.date);
   console.log("problem name:", questionInfo.question.title);
   console.log("problem description:", questionInfo.question.difficulty);
-  console.log("problem link: leetcode.com"+ questionInfo.link);
+  console.log("problem link: leetcode.com" + questionInfo.link);
+  console.log("   ")
 };
 
 const fetchDailyCodingChallenge = async () => {
@@ -67,3 +69,35 @@ syncLeetCodeCodingChallenge();
 //   console.log(questionInfo);
 
 // }
+
+/*sync Geeks for geeks */
+const GFG_API_ENDPOINT =
+  "https://practiceapi.geeksforgeeks.org/api/v1/problems-of-day/problem/today/";
+
+const syncGFGChallenge = async () => {
+  const question_gfg = await fetchDailyCodingGFG();
+  console.log("***********")
+  console.log("***********")
+  console.log("   ");
+  console.log("Geeks for Geeks: POTD");
+  // console.log(question_gfg);
+  console.log("the problem of the day for", question_gfg.date);
+  console.log("problem name:", question_gfg.problem_name);
+  console.log("problem description:", question_gfg.difficulty);
+  console.log("problem link:", question_gfg.problem_url);
+};
+
+const fetchDailyCodingGFG = async () => {
+  console.log(`Fetching daily coding challenge from GFG api.`);
+
+  const init = {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  };
+
+  const response = await fetch(GFG_API_ENDPOINT, init);
+
+  return response.json();
+};
+
+syncGFGChallenge();
