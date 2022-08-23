@@ -36,7 +36,7 @@ const syncLeetCodeCodingChallenge = async () => {
   console.log("LeetCode: POTD");
 
   const questionInfo = question.data.activeDailyCodingChallengeQuestion;
-  //   console.log(questionInfo);
+
 
   const questionTitle = questionInfo.question.title;
   const questionDifficulty = questionInfo.question.difficulty;
@@ -64,11 +64,6 @@ const fetchDailyCodingChallenge = async () => {
 
 syncLeetCodeCodingChallenge();
 
-// const createTodoistTask = async (question) => {
-//   const questionInfo = question.data.activeDailyCodingChallengeQuestion;
-//   console.log(questionInfo);
-
-// }
 
 /*sync Geeks for geeks */
 const GFG_API_ENDPOINT =
@@ -80,7 +75,7 @@ const syncGFGChallenge = async () => {
   console.log("***********")
   console.log("   ");
   console.log("Geeks for Geeks: POTD");
-  // console.log(question_gfg);
+
   console.log("the problem of the day for", question_gfg.date);
   console.log("problem name:", question_gfg.problem_name);
   console.log("problem description:", question_gfg.difficulty);
@@ -92,7 +87,7 @@ const fetchDailyCodingGFG = async () => {
 
   const init = {
     method: "GET",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" }
   };
 
   const response = await fetch(GFG_API_ENDPOINT, init);
@@ -101,3 +96,7 @@ const fetchDailyCodingGFG = async () => {
 };
 
 syncGFGChallenge();
+
+/*Sync Coding Ninjas */
+
+const CodingNinjas_API_ENDPOINT = "https://api.codingninjas.com/api/v3/public_section/potd/problem_list?date=2022-08-23"
