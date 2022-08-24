@@ -147,11 +147,12 @@ const fetchDailyCodingNinjas = async () => {
 
 // using puppeteer to grab the link for potd codechef
 const grab_chefLink = async () => {
-	const browser = await puppeteer.launch({headless: true});
+	const browser = await puppeteer.launch({headless: false});
 	const page = await browser.newPage();
 	await page.goto('https://www.codechef.com/');
 	var link = await page.$$eval(".m-button-1",
                 element=> element[1].href)
+	await page.close();
     return link;
   };
   
