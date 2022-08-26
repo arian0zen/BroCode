@@ -147,20 +147,21 @@ const fetchDailyCodingNinjas = async () => {
 
 // using puppeteer to grab the link for potd codechef
 const grab_chefLink = async () => {
-	const browser = await puppeteer.launch({headless: false});
+	const browser = await puppeteer.launch({headless: true});
 	const page = await browser.newPage();
-	await page.goto('https://www.codechef.com/');
+	await page.setDefaultNavigationTimeout(0);
+	await page.goto('https://www.codechef.com');
 	var link = await page.$$eval(".m-button-1",
                 element=> element[1].href)
-	await page.close();
     return link;
   };
+
+
   
   const link_grabbed = async ()=> {
 	const problem_link = await grab_chefLink();
 	// console.log(problem_link);
 	problem_code = problem_link.replace(/[^A-Z]/g, '');
-	
 	const codechef_API_ENDPOINT = `https://www.codechef.com/api/contests/PRACTICE/problems/${problem_code}`;
 	
 	return codechef_API_ENDPOINT;
@@ -174,7 +175,7 @@ const syncCodeChefChallenge = async () => {
 	console.log("   ");
 	console.log("Code Chef: POTD for", date);
 	console.log("Problem name: ",question_codechef.problem_name);
-	console.log("Problem difficulty: ",question_codechef.status)
+	console.log("Problem difficulty: ",question_codechef.difficulty_rating);
 	console.log("problem link: ", `https://www.codechef.com/problems/${question_codechef.problem_code}` );
 
 	console.log("***********")
@@ -202,7 +203,7 @@ const fetchDailyCodeChef = async () => {
 
 
 
-link_grabbed();
+// link_grabbed();
 syncCodeChefChallenge(); 
 syncLeetCodeCodingChallenge();
 syncGFGChallenge();
