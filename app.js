@@ -208,3 +208,19 @@ syncCodeChefChallenge();
 syncLeetCodeCodingChallenge();
 syncGFGChallenge();
 syncCodingNinjasChallenge();
+
+
+
+
+//udemy
+
+// const grab_udemyLink = async () => {
+// 	const browser = await puppeteer.launch({headless: false});
+// 	const page = await browser.newPage();
+// 	await page.setDefaultNavigationTimeout(0);
+// 	await page.goto('https://course.rewayatcafe.com/742MVaw');
+// 	var title = await page.title();
+// 	console.log(title);
+//   };
+
+//   grab_udemyLink();
